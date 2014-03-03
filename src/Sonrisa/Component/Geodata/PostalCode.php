@@ -28,19 +28,19 @@ class PostalCode
     /**
      * @var string
      */
-	protected $config_file = './PostalCode/Resources/config.php';
+	protected $config_file = 'PostalCodes/Resources/config.php';
 
 	/**
-     * @throws Exceptions\GeodataException
+     * @throws \Sonrisa\Component\Geodata\Exceptions\GeodataException
 	 */
 	public function __construct()
 	{
+        $this->config_file = realpath(dirname(__FILE__)).DIRECTORY_SEPARATOR.$this->config_file;
+
 		//Load the array from the Resources folder.
 		if(file_exists($this->config_file))
 		{
 			$this->loadConfigFile();
-			$this->buildCountryToPostalRegexArray();
-			$this->buildPostalToCountryRegexArray();
 		}
 		else
 		{
@@ -58,13 +58,16 @@ class PostalCode
 
 	/**
 	 * Converts the array to valid regular expressions
-	 */
-	protected function buildCountryToPostalRegexArray()
+	 *
+     * @param $expression
+     * @return string
+     */
+    protected function buildRegex($expression)
 	{
 		$patterns = array("#","@","*");
 		$replacements = array( '\d','[a-zA-Z]', '[a-zA-Z0-9]');
 
-  		$this->country_to_postal = str_replace($patterns,$replacements,$this->country_to_postal);
+  		return str_replace($patterns,$replacements,$expression);
 	}
 
 
@@ -77,6 +80,8 @@ class PostalCode
 		{
 			foreach($formats as $code)
 			{
+                $code = $this->buildRegex($code);
+
 				if(!empty($this->postal_to_country[$code]))
 				{
 					$this->postal_to_country[$code][] = $country;
@@ -111,7 +116,7 @@ class PostalCode
      * @param string $country_code
      * @param string $postal_code
      * @return bool
-     * @throws Exceptions\GeodataException
+     * @throws \Sonrisa\Component\Geodata\Exceptions\GeodataException
      */
     public function isValid($country_code,$postal_code)
 	{
@@ -126,7 +131,7 @@ class PostalCode
 			{
 	 			foreach($this->country_to_postal[$country_code] as $pattern)
 	        	{
-	            	if(preg_match($pattern, $postal_code))
+	            	if(preg_match($this->buildRegex($pattern), $postal_code))
 	            	{
 	                	$valid = true;
 	            	}
@@ -137,28 +142,67 @@ class PostalCode
 	}
 
 	/**
-	 * Pass a postal code and return the matching countries.
-     *
-	 * @param string $postal_code	 
-	 */
-	public function matchesWith($postal_code)
-	{
-		
-	}
-
-	/**
 	 * Pass a country code and retrieve the country postal codes.
 	 *
-	 * @param string $country_code
-	 * @return array	
-	 */
-	public function countryCodes($country_code)
+     * @param string $country_code
+     * @return array
+     * @throws \Sonrisa\Component\Geodata\Exceptions\GeodataException
+     */
+    public function countryCodes($country_code)
 	{
 		$codes = array();
-		if( array_key_exists(strtoupper($country_code), $this->country_to_postal) )
+		if( !array_key_exists(strtoupper($country_code), $this->country_to_postal) )
 		{
-			$codes = $this->country_to_postal[$country_code];
+            throw new GeodataException("Invalid country code: {$country_code}");
+        }
+        else
+        {
+            foreach($this->country_to_postal[$country_code] as &$code)
+            {
+                $codes[] = $this->buildRegex($code);
+            }
 		}
 		return $codes;
 	}
+
+
+    /**
+     * Pass a postal code and return the matching countries.
+     *
+     * @param string $postal_code
+     * @return array
+     */
+    public function matchesWith($postal_code)
+    {
+        $this->buildPostalToCountryRegexArray();
+
+        $codes = array();
+        $end = false;
+        $pattern = key($this->postal_to_country);
+        $countries = array_shift($this->postal_to_country);
+
+        do
+        {
+            if(preg_match($this->buildRegex($pattern), $postal_code))
+            {
+                $codes = $countries;
+                $end = true;
+            }
+            else
+            {
+                if(empty($this->postal_to_country))                
+                {
+                   $end = true;   
+                }
+                else
+                {
+                    $pattern = key($this->postal_to_country);
+                    $countries = array_shift($this->postal_to_country);    
+                }                               
+            }
+        } while($end == false);
+
+        return $codes;
+    }
+
 }
