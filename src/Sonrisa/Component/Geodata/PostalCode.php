@@ -1,5 +1,18 @@
 <?php
+/*
+ * Author: Nil Portugués Calderó <contact@nilportugues.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+namespace Sonrisa\Component\Geodata;
 
+use Sonrisa\Component\Geodata\Exceptions\GeodataException;
+
+/**
+ * Class PostalCode
+ * @package Sonrisa\Component\Geodata
+ */
 class PostalCode
 {
     /**
@@ -18,7 +31,7 @@ class PostalCode
 	protected $config_file = './PostalCode/Resources/config.php';
 
 	/**
-	 *
+     * @throws Exceptions\GeodataException
 	 */
 	public function __construct()
 	{
@@ -31,7 +44,7 @@ class PostalCode
 		}
 		else
 		{
-			throw new Exception('Postal Code configuration file not found');
+			throw new GeodataException('Postal Code configuration file not found');
 		}
 	}
 
@@ -95,16 +108,17 @@ class PostalCode
 	/**
 	 * Pass a country code and a postal code. Returns TRUE if valid, FALSE otherwise. 
 	 *
-	 * @param string $country_code
-	 * @param string $postal_code	 
-	 * @return boolean		 
-	 */
-	public function isValid($country_code,$postal_code)
+     * @param string $country_code
+     * @param string $postal_code
+     * @return bool
+     * @throws Exceptions\GeodataException
+     */
+    public function isValid($country_code,$postal_code)
 	{
 		$valid = false;
 		if( !array_key_exists(strtoupper($country_code), $this->country_to_postal) )
 		{
-			throw new Exception("Invalid country code: {$country_code}");
+			throw new GeodataException("Invalid country code: {$country_code}");
 		}
 		else
 		{
@@ -124,6 +138,7 @@ class PostalCode
 
 	/**
 	 * Pass a postal code and return the matching countries.
+     *
 	 * @param string $postal_code	 
 	 */
 	public function matchesWith($postal_code)
