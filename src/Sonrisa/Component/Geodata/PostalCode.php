@@ -174,12 +174,19 @@ class PostalCode
      */
     public function matchesWith($postal_code)
     {
-        $this->buildPostalToCountryRegexArray();
+        if(empty($this->postal_to_country))
+        {
+            $this->buildPostalToCountryRegexArray();
+        }
+        else
+        {
+            $matchArray = $this->postal_to_country;
+        }
 
         $codes = array();
         $end = false;
-        $pattern = key($this->postal_to_country);
-        $countries = array_shift($this->postal_to_country);
+        $pattern = key($matchArray);
+        $countries = array_shift($matchArray);
 
         do
         {
@@ -190,19 +197,18 @@ class PostalCode
             }
             else
             {
-                if(empty($this->postal_to_country))                
+                if(empty($matchArray))
                 {
                    $end = true;   
                 }
                 else
                 {
-                    $pattern = key($this->postal_to_country);
-                    $countries = array_shift($this->postal_to_country);    
+                    $pattern = key($matchArray);
+                    $countries = array_shift($matchArray);
                 }                               
             }
         } while($end == false);
 
         return $codes;
     }
-
 }
