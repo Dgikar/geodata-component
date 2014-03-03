@@ -103,7 +103,9 @@ class PostalCode
 	public function isSupported($country_code)
 	{
 		$supported = false;
-		if( array_key_exists(strtoupper($country_code), $this->country_to_postal) && !empty($this->country_to_postal[$country_code]) )
+        $country_code = strtoupper($country_code);
+
+		if( array_key_exists($country_code, $this->country_to_postal) && !empty($this->country_to_postal[$country_code]) )
 		{
 			$supported = true;
 		}
@@ -121,7 +123,9 @@ class PostalCode
     public function isValid($country_code,$postal_code)
 	{
 		$valid = false;
-		if( !array_key_exists(strtoupper($country_code), $this->country_to_postal) )
+        $country_code = strtoupper($country_code);
+
+		if( !array_key_exists($country_code, $this->country_to_postal) )
 		{
 			throw new GeodataException("Invalid country code: {$country_code}");
 		}
@@ -151,7 +155,9 @@ class PostalCode
     public function countryCodes($country_code)
 	{
 		$codes = array();
-		if( !array_key_exists(strtoupper($country_code), $this->country_to_postal) )
+        $country_code = strtoupper($country_code);
+
+		if( !array_key_exists($country_code, $this->country_to_postal) )
 		{
             throw new GeodataException("Invalid country code: {$country_code}");
         }

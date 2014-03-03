@@ -2,6 +2,10 @@
 
 /**
  * Country Code: ISO 3166 2-letter code
+ *
+ * The # characters will be replaced for \d
+ * The @ characters will be replaced for [a-zA-Z]
+ * The * characters will be replaced for [a-zA-Z0-9]
  */
 return array
 (
