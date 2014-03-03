@@ -31,7 +31,7 @@ class PostalCode
 		}
 		else
 		{
-			throw new Exception('Postal Code array not found');
+			throw new Exception('Postal Code configuration file not found');
 		}
 	}
 
@@ -78,26 +78,57 @@ class PostalCode
 
 	/**
 	 * Check if a country has postal codes.
+	 *
+	 * @param string $country_code
+	 * @return boolean			 
 	 */
 	public function isSupported($country_code)
 	{
-
+		$supported = false;
+		if( array_key_exists(strtoupper($country_code), $this->country_to_postal) && !empty($this->country_to_postal[$country_code]) )
+		{
+			$supported = true;
+		}
+		return $supported;
 	}
 
 	/**
 	 * Pass a country code and a postal code. Returns TRUE if valid, FALSE otherwise. 
+	 *
+	 * @param string $country_code
+	 * @param string $postal_code	 
+	 * @return boolean		 
 	 */
 	public function isValid($country_code,$postal_code)
 	{
-
+		$valid = false;
+		if( !array_key_exists(strtoupper($country_code), $this->country_to_postal) )
+		{
+			throw new Exception("Invalid country code: {$country_code}");
+		}
+		else
+		{
+			if(!empty($this->country_to_postal[$country_code]))
+			{
+	 			foreach($this->country_to_postal[$country_code] as $pattern)
+	        	{
+	            	if(preg_match($pattern, $postal_code))
+	            	{
+	                	$valid = true;
+	            	}
+	        	}
+			}
+		}
+		return $valid;
 	}
 
 	/**
 	 * Pass a postal code and return the matching countries.
+	 * @param string $postal_code	 
 	 */
 	public function matchesWith($postal_code)
 	{
-
+		
 	}
 
 	/**
