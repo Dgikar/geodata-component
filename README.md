@@ -26,10 +26,15 @@ Postal Codes validness are checked using a country's postal code or a ISO 3166 2
 <?php
 include 'vendor/autoload.php';
 
-$postal = new \Sonrisa\Component\Geodata\PostalCode();
+try {
+    $postal = new \Sonrisa\Component\Geodata\PostalCode();
 
-$supported = $postal->isSupported('US'); //returns TRUE.
-$supported = $postal->isSupported('XXX'); //returns FALSE.
+    $supported = $postal->isSupported('US'); //returns TRUE.
+    $supported = $postal->isSupported('XXX'); //returns FALSE.
+
+} catch(\Sonrisa\Component\Geodata\Exceptions\GeodataException $e) {
+    echo $e->getMessage();
+}
 ```
 
 <a name="block32"></a>
@@ -40,16 +45,14 @@ $supported = $postal->isSupported('XXX'); //returns FALSE.
 include 'vendor/autoload.php';
 
 $postal = new \Sonrisa\Component\Geodata\PostalCode();
-try
-{
+try {
     //returns TRUE if OK, FALSE otherwise.
     $supported = $postal->isValid('ES','08029');
 
     //throws GeodataException
     $supported = $postal->isValid('XXXXXX','08029');
-}
-catch(\Sonrisa\Component\Geodata\Exceptions\GeodataException $e)
-{
+
+} catch(\Sonrisa\Component\Geodata\Exceptions\GeodataException $e) {
     echo $e->getMessage();
 }
 ```
@@ -61,13 +64,18 @@ catch(\Sonrisa\Component\Geodata\Exceptions\GeodataException $e)
 <?php
 include 'vendor/autoload.php';
 
-$postal = new \Sonrisa\Component\Geodata\PostalCode();
+try {
+    $postal = new \Sonrisa\Component\Geodata\PostalCode();
 
-//returns an array with all possible countries.
-$supported = $postal->matchesWith('08029');
+    //returns an array with all possible countries.
+    $supported = $postal->matchesWith('08029');
 
-//returns empty array.
-$supported = $postal->matchesWith('XXXXXXXX');
+    //returns empty array.
+    $supported = $postal->matchesWith('XXXXXXXX');
+
+} catch(\Sonrisa\Component\Geodata\Exceptions\GeodataException $e) {
+    echo $e->getMessage();
+}
 ```
 
 <a name="block34"></a>
@@ -77,17 +85,16 @@ $supported = $postal->matchesWith('XXXXXXXX');
 <?php
 include 'vendor/autoload.php';
 
-$postal = new \Sonrisa\Component\Geodata\PostalCode();
-try
-{
+try {
+    $postal = new \Sonrisa\Component\Geodata\PostalCode();
+
     //returns an array with all possible postal codes.
     $supported = $postal->countryCodes('US');
 
     //throws GeodataException
     $supported = $postal->countryCodes('XXXX');
-}
-catch(\Sonrisa\Component\Geodata\Exceptions\GeodataException $e)
-{
+
+} catch(\Sonrisa\Component\Geodata\Exceptions\GeodataException $e) {
     echo $e->getMessage();
 }
 ```

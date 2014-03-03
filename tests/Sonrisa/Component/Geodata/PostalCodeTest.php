@@ -23,7 +23,14 @@ class PostalCodeTest extends \PHPUnit_Framework_TestCase
 
     public function testConfigFileNotFound()
     {
+        $this->setExpectedException("Sonrisa\\Component\\Geodata\\Exceptions\\GeodataException");
 
+        $reflectionClass = new ReflectionClass('\Sonrisa\Component\Geodata\PostalCode');
+        $property = $reflectionClass->getProperty('config_file');
+        $property->setAccessible(true);
+        $property->setValue($this->postal,'foo');
+
+        call_user_func_array(array($this->postal,'__construct'),array());
     }
 
     public function testIsSupportedReturnsTrue()

@@ -178,10 +178,7 @@ class PostalCode
         {
             $this->buildPostalToCountryRegexArray();
         }
-        else
-        {
-            $matchArray = $this->postal_to_country;
-        }
+        $matchArray = $this->postal_to_country;
 
         $codes = array();
         $end = false;
