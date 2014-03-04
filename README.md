@@ -11,7 +11,7 @@ Component containing all sorts of i18n data, such as Date formats, Postal Codes,
 <a name="block2"></a>
 ## 2. Country Address formatting
 
-```
+```php
 <?php
 include 'vendor/autoload.php';
 
