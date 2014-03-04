@@ -11,6 +11,31 @@ Component containing all sorts of i18n data, such as Date formats, Postal Codes,
 <a name="block2"></a>
 ## 2. Country Address formatting
 
+```
+<?php
+include 'vendor/autoload.php';
+
+try {
+    //Create an address formatter instance
+    $address = new Geodata\Address('GB');
+
+    //Set the address parts
+    //If a setter value is NULL, it will be ignored.
+    $address->setCity('London');
+    $address->setLocality('Greenwich');
+    $address->setRecipient('Joe Bloggs');
+    $address->setOrganization('Novotel London');
+    $address->setPostalCode('SE10 8JA');
+    $address->setAddressLine1('Street 1');
+    $address->setAddressLine2('Flat number and door number');
+
+    echo $address->build();
+
+} catch(\Sonrisa\Component\Geodata\Exceptions\GeodataException $e) {
+    echo $e->getMessage();
+}
+
+```
 
 ---
 
