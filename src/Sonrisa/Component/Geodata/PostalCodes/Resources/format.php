@@ -10,7 +10,7 @@
 return array
 (
     'AF' => array('/^####$/'),                     
-    'AL' => array('/^####$/'),                  //@todo missing codes in codes.php file
+    'AL' => array('/^####$/'),
     'DZ' => array('/^#####$/'),                     
     'AS' => array('/^#####$/'),                     
     'AD' => array('/^AD###$/'),
@@ -27,7 +27,7 @@ return array
     'BS' => array(),                            
     'BH' => array(),                           
     'BD' => array('/^####$/'),                     
-    'BB' => array('/^BB#####$/'),               //@todo missing codes in codes.php file
+    'BB' => array('/^BB#####$/'),               
     'BY' => array('/^######$/'),                //@todo missing codes in codes.php file
     'BE' => array('/^####$/'),                     
     'BZ' => array(),                           
