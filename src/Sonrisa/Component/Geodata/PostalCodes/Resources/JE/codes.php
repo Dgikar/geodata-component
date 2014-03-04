@@ -8,5 +8,5 @@
 
 return array
 (
-    98000
+    'JE1','JE2','JE3',
 );
