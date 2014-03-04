@@ -7,8 +7,7 @@
  * The @ characters will be replaced for [a-zA-Z]
  * The * characters will be replaced for [a-zA-Z0-9]
  */
-return array
-(
+return [
     'AF' => array('/^####$/'),                     
     'AL' => array('/^####$/'),
     'DZ' => array('/^#####$/'),                     
@@ -27,7 +26,7 @@ return array
     'BS' => array(),                            
     'BH' => array(),                           
     'BD' => array('/^####$/'),                     
-    'BB' => array('/^BB#####$/'),               
+    'BB' => array('/^BB#####$/'),
     'BY' => array('/^######$/'),                //@todo missing codes in codes.php file
     'BE' => array('/^####$/'),                     
     'BZ' => array(),                           
@@ -237,8 +236,8 @@ return array
     'UA' => array('/^#####$/'),                     //@todo missing codes in codes.php file
     'AE' => array(),                            
     'UM' => array(),                            
-    'UY' => array('/^#####$/'),                     //@todo missing codes in codes.php file
-    'US' => array('/^#####$/'),
+    'UY' => array('/^#####$/'),                     
+    'US' => array('/^#####$/','/^#####-####$/'),
     'UZ' => array('/^######$/'),                    //@todo missing codes in codes.php file
     'VU' => array(),                            
     'VA' => array('/^00120$/'),                     
@@ -251,4 +250,4 @@ return array
     'YE' => array(),                            
     'ZM' => array('/^#####$/'),                     //@todo missing codes in codes.php file
     'ZW' => array()     
-);
+];
