@@ -8,5 +8,5 @@
 
 return array
 (
-
+    'GY1','GY10','GY2','GY3','GY4','GY5','GY9',
 );
