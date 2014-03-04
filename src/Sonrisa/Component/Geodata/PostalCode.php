@@ -28,7 +28,7 @@ class PostalCode
     /**
      * @var string
      */
-	protected $config_file = 'PostalCodes/Resources/config.php';
+	protected $config_file = 'PostalCodes/Resources/format.php';
 
 	/**
      * @throws \Sonrisa\Component\Geodata\Exceptions\GeodataException
