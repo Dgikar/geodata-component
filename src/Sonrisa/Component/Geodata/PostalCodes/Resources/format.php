@@ -18,7 +18,7 @@ return [
     'AQ' => array(),                            
     'AG' => array(),                            
     'AR' => array('/^####$/', '/^@####@@@$/'),          
-    'AM' => array('/^####$/'),                  //@todo missing codes in codes.php file
+    'AM' => array('/^####$/'),                  
     'AW' => array(),                            
     'AU' => array('/^####$/'),                     
     'AT' => array('/^####$/'),                     
@@ -91,7 +91,7 @@ return [
     'GE' => array('/^####$/'),                  //@todo missing codes in codes.php file
     'DE' => array('/^#####$/'),                   
     'GH' => array(),                           
-    'GI' => array(),                           
+    'GI' => array('/^GX11 1AA$/'),
     'GR' => array('/^#####$/', '/^### ##$/'),    //@todo missing codes in codes.php file
     'GL' => array('/^####$/'),                     
     'GD' => array(),                           
@@ -236,7 +236,7 @@ return [
     'UA' => array('/^#####$/'),                     //@todo missing codes in codes.php file
     'AE' => array(),                            
     'UM' => array(),                            
-    'UY' => array('/^#####$/'),                     
+    'UY' => array('/^#####$/'),
     'US' => array('/^#####$/','/^#####-####$/'),
     'UZ' => array('/^######$/'),                    //@todo missing codes in codes.php file
     'VU' => array(),                            
@@ -244,7 +244,7 @@ return [
     'VE' => array('/^####$/'),                      //@todo missing codes in codes.php file
     'VN' => array('/^######$/'),                    //@todo missing codes in codes.php file
     'VG' => array('/^VG11#0$/'),                    //@todo missing codes in codes.php file
-    'VI' => array(),                            
+    'VI' => array('/^#####$/'),
     'WF' => array('/^#####$/'),                     //@todo missing codes in codes.php file
     'EH' => array('/^#####$/'),                     //@todo missing codes in codes.php file
     'YE' => array(),                            
