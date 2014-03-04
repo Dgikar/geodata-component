@@ -141,3 +141,4 @@ Nil Portugués Calderó
 - http://download.geonames.org/export/dump/
 - http://www.addressdoctor.com/en/countries-data/address-formats.html
 - http://www.opengeocode.org/download.php#countrynames
+- https://code.google.com/p/libaddressinput/wiki/AddressValidationMetadata
