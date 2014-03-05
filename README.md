@@ -11,7 +11,7 @@ Component containing all sorts of i18n data, such as Date formats, Postal Codes,
 <a name="block2"></a>
 ## 2. Country Address Builder
 
-### 2.1 - Available methods
+#### 2.1 - Available methods
 
 - __construct($iso_code)
 - setCity($city)
@@ -25,7 +25,7 @@ Component containing all sorts of i18n data, such as Date formats, Postal Codes,
 - setAddressLine2($address)
 - build($line_break = "\n")
 
-### 2.2 - Example
+#### 2.2 - Example
 ```php
 <?php
 include 'vendor/autoload.php';
@@ -51,7 +51,7 @@ try {
 }
 ```
 
-### To do:
+#### To do:
 
 - Build arrays for Countries with multiple formats and use the one that matches best based on the data provided.
 
@@ -63,7 +63,7 @@ try {
 Postal Codes validness are checked using a country's postal code or a ISO 3166 2-letter code.
 
 <a name="block31"></a>
-### 3.1 - Check If Country Is Supported
+#### 3.1 - Check If Country Is Supported
 
 ```php
 <?php
@@ -81,7 +81,7 @@ try {
 ```
 
 <a name="block32"></a>
-### 3.2 - Check If Postal Code Is Properly Formatted
+#### 3.2 - Check If Postal Code Is Properly Formatted
 
 ```php
 <?php
@@ -101,7 +101,7 @@ try {
 ```
 
 <a name="block33"></a>
-### 3.3 - Resolve Postal Code to possible Countries
+#### 3.3 - Resolve Postal Code to possible Countries
 
 ```php
 <?php
@@ -122,7 +122,7 @@ try {
 ```
 
 <a name="block34"></a>
-### 3.4 - Resolve Country to Postal Code format.
+#### 3.4 - Resolve Country to Postal Code format.
 
 ```php
 <?php
@@ -148,10 +148,10 @@ try {
 ## 4. Country Currencies
 
 <a name="block41"></a>
-### 4.1 - Resolve Currency to its valid formatting using its symbol
+#### 4.1 - Resolve Currency to its valid formatting using its symbol
 
 <a name="block42"></a>
-### 4.2 - Resolve Currency to its valid formatting using its letter representation
+#### 4.2 - Resolve Currency to its valid formatting using its letter representation
 
 ---
 
@@ -159,10 +159,10 @@ try {
 ## 5. Country Number formatting
 
 <a name="block51"></a>
-### 5.1 - Get country's format by passing a country code.
+#### 5.1 - Get country's format by passing a country code.
 
 <a name="block52"></a>
-### 5.2 - Convert from a country's number format to another country's formatting.
+#### 5.2 - Convert from a country's number format to another country's formatting.
 
 ---
 
@@ -179,7 +179,7 @@ Nil Portugués Calderó
  - http://nilportugues.com
 
 <a name="references"></a>
-## References
+## 8. References
 
 - http://download.geonames.org/export/dump/
 - http://www.addressdoctor.com/en/countries-data/address-formats.html
