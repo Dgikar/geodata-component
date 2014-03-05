@@ -116,7 +116,7 @@ return array
     'IL' => array('/^#####$/'),                 //@todo missing codes in codes.php file
     'IT' => array('/^#####$/'),                     
     'JM' => array('/^JM@@@##$/'),                   
-    'JP' => array('/^###-####$/', '/^#######$/'),//@todo missing codes in codes.php file
+    'JP' => array('/^###-####$/', '/^#######$/'),
     'JO' => array('/^#####$/'),                  //@todo missing codes in codes.php file
     'KZ' => array('/^######$/'),                 //@todo missing codes in codes.php file
     'KE' => array('/^#####$/'),                  //@todo missing codes in codes.php file
