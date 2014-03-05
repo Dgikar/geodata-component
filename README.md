@@ -32,7 +32,7 @@ include 'vendor/autoload.php';
 
 try {
     //Create an address formatter instance
-    $address = new Geodata\Address('UK');
+    $address = new Geodata\Address('GB');
 
     //Set the address parts
     //If a setter value is NULL, it will be ignored.
