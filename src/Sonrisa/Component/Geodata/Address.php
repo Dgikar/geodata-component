@@ -54,7 +54,22 @@ class Address
 		//Check if the loaded file contains the ISO code for the Address format.
 		if( !empty($this->formats[$iso_code]) )
 		{
-			$this->format = $this->formats[$iso_code];
+			$this->format = $this->formats[$iso_code];		
+			$this->data = array
+			(
+				'ADMIN_AREA'			=> '',
+				'LOCALITY'				=> '',
+				'RECIPIENT'				=> '',
+				'ORGANIZATION'			=> '',
+				'ADDRESS_LINE_1'		=> '',
+				'ADDRESS_LINE_2'		=> '',
+				'DEPENDENT_LOCALITY'	=> '',
+				'POSTAL_CODE'			=> '',
+				'SORTING_CODE'			=> '',
+				'STREET_ADDRESS'		=> '',
+				'COUNTRY'				=> '',
+			);
+
 			$this->setCountry($iso_code);
 		}
 		else
@@ -92,6 +107,18 @@ class Address
 	public function setCity($city)
 	{
 		$this->data['LOCALITY'] = $city;
+		return $this;
+	}
+
+	/**
+	 * Sets the subarea value.
+	 *
+	 * @param string $subarea
+	 * @return \Sonrisa\Component\Geodata\Address			 
+	 */	
+	public function setCitySubArea($subarea)
+	{
+		$this->data['DEPENDENT_LOCALITY'] = $subarea;
 		return $this;
 	}
 
@@ -142,6 +169,18 @@ class Address
 		$this->data['POSTAL_CODE'] = $postal_code;
 		return $this;
 	}
+
+	/**
+	 * Sets the sorting code value.
+	 *
+	 * @param string $sorting_code
+	 * @return \Sonrisa\Component\Geodata\Address			 
+	 */	
+	public function setSortingCode($sorting_code)
+	{
+		$this->data['SORTING_CODE'] = $sorting_code;
+		return $this;
+	}	
 
 	/**
 	 * Sets the first street address value.

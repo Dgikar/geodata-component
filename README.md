@@ -9,22 +9,37 @@ Component containing all sorts of i18n data, such as Date formats, Postal Codes,
 ---
 
 <a name="block2"></a>
-## 2. Country Address formatting
+## 2. Country Address Builder
 
+### 2.1 - Available methods
+
+- __construct($iso_code)
+- setCity($city)
+- setCitySubArea($subarea)
+- setState($state)
+- setRecipient($recipient_name)
+- setOrganization($organization)
+- setPostalCode($postal_code)
+- setSortingCode($sorting_code)
+- setAddressLine1($address)
+- setAddressLine2($address)
+- build($line_break = "\n")
+
+### 2.2 - Example
 ```php
 <?php
 include 'vendor/autoload.php';
 
 try {
     //Create an address formatter instance
-    $address = new Geodata\Address('GB');
+    $address = new Geodata\Address('UK');
 
     //Set the address parts
     //If a setter value is NULL, it will be ignored.
     $address->setCity('London');
     $address->setLocality('Greenwich');
     $address->setRecipient('Joe Bloggs');
-    $address->setOrganization('Novotel London');
+    $address->setOrganization('ACME London');
     $address->setPostalCode('SE10 8JA');
     $address->setAddressLine1('Street 1');
     $address->setAddressLine2('Flat number and door number');
@@ -34,13 +49,16 @@ try {
 } catch(\Sonrisa\Component\Geodata\Exceptions\GeodataException $e) {
     echo $e->getMessage();
 }
-
 ```
+
+### To do:
+
+- Build arrays for Countries with multiple formats and use the one that matches best based on the data provided.
 
 ---
 
 <a name="block3"></a>
-## 3. Postal Codes
+## 3. Postal Codes Validator
 
 Postal Codes validness are checked using a country's postal code or a ISO 3166 2-letter code.
 
@@ -127,7 +145,7 @@ try {
 ---
 
 <a name="block4"></a>
-## 4. Currencies
+## 4. Country Currencies
 
 <a name="block41"></a>
 ### 4.1 - Resolve Currency to its valid formatting using its symbol
@@ -138,7 +156,7 @@ try {
 ---
 
 <a name="block5"></a>
-## 5. Number formatting
+## 5. Country Number formatting
 
 <a name="block51"></a>
 ### 5.1 - Get country's format by passing a country code.
