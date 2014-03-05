@@ -35,8 +35,50 @@ class Address
     */
     protected $data = array();
 
+   /**
+    * @var string
+    */
+    protected $iso_code = ''; 
 
-	public function __construct($iso_code)
+
+	public function __construct($iso_code = '')
+	{
+		$this->data = array
+		(
+			'ADMIN_AREA'			=> '',
+			'LOCALITY'				=> '',
+			'RECIPIENT'				=> '',
+			'ORGANIZATION'			=> '',
+			'ADDRESS_LINE_1'		=> '',
+			'ADDRESS_LINE_2'		=> '',
+			'DEPENDENT_LOCALITY'	=> '',
+			'POSTAL_CODE'			=> '',
+			'SORTING_CODE'			=> '',
+			'STREET_ADDRESS'		=> '',
+			'COUNTRY'				=> '',
+		);
+
+		if(!empty($iso_code))
+		{
+			$this->setUp($iso_code);
+		}
+	
+	}
+
+	public function setCountry($country)
+	{
+		//If country is a valid iso code, set the iso code value.
+		
+		$this->iso_code = $country;
+
+		//@todo: Load up country name using the iso_code and set the data array
+
+		//Return data
+		$this->data['COUNTRY'] = $country_name;
+		return $this;
+	}
+
+	protected function setUp($iso_code)
 	{
 		$iso_code = strtoupper($iso_code);
         $this->config_file = realpath(dirname(__FILE__)).DIRECTORY_SEPARATOR.$this->config_file;
@@ -55,27 +97,14 @@ class Address
 		if( !empty($this->formats[$iso_code]) )
 		{
 			$this->format = $this->formats[$iso_code];		
-			$this->data = array
-			(
-				'ADMIN_AREA'			=> '',
-				'LOCALITY'				=> '',
-				'RECIPIENT'				=> '',
-				'ORGANIZATION'			=> '',
-				'ADDRESS_LINE_1'		=> '',
-				'ADDRESS_LINE_2'		=> '',
-				'DEPENDENT_LOCALITY'	=> '',
-				'POSTAL_CODE'			=> '',
-				'SORTING_CODE'			=> '',
-				'STREET_ADDRESS'		=> '',
-				'COUNTRY'				=> '',
-			);
+
 
 			$this->setCountry($iso_code);
 		}
 		else
 		{
 			throw new GeodataException('ISO code provided not found in configuration file.');
-		}			
+		}				
 	}
 
 	/**
@@ -84,18 +113,6 @@ class Address
 	protected function loadConfigFile()
 	{
 		$this->formats = include($this->config_file);
-	}
-
-	/**
-	 * Sets the country value.
-	 *
-	 * @param string $country
-	 * @return \Sonrisa\Component\Geodata\Address			 
-	 */	
-	protected function setCountry($country)
-	{
-		$this->data['COUNTRY'] = $country;
-		return $this;
 	}
 
 	/**
