@@ -7,7 +7,8 @@
  * The @ characters will be replaced for [a-zA-Z]
  * The * characters will be replaced for [a-zA-Z0-9]
  */
-return [
+return array
+(
     'AF' => array('/^####$/'),                     
     'AL' => array('/^####$/'),
     'DZ' => array('/^#####$/'),                     
@@ -18,7 +19,7 @@ return [
     'AQ' => array(),                            
     'AG' => array(),                            
     'AR' => array('/^####$/', '/^@####@@@$/'),          
-    'AM' => array('/^####$/'),                  
+    'AM' => array('/^####$/'),
     'AW' => array(),                            
     'AU' => array('/^####$/'),                     
     'AT' => array('/^####$/'),                     
@@ -250,4 +251,4 @@ return [
     'YE' => array(),                            
     'ZM' => array('/^#####$/'),                     //@todo missing codes in codes.php file
     'ZW' => array()     
-];
+);
