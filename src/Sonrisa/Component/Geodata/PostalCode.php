@@ -41,7 +41,7 @@ class PostalCode
     protected function __construct() {}
 
     /**
-     * @return SharedValidator
+     * @return \Sonrisa\Component\Geodata\PostalCode
      */
     public static function getInstance()
     {
