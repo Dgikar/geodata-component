@@ -178,6 +178,7 @@ Nil Portugués Calderó
 <a name="references"></a>
 ## 8. References
 
+- http://unicode.org/cldr/trac/browser/trunk/common/main
 - http://planet.openstreetmap.org/
 - http://download.geonames.org/export/dump/
 - http://www.addressdoctor.com/en/countries-data/address-formats.html
