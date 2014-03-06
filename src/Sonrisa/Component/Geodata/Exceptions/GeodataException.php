@@ -11,6 +11,6 @@ namespace Sonrisa\Component\Geodata\Exceptions;
  * Class GeodataException
  * @package Sonrisa\Component\Geodata\Exceptions
  */
-class GeodataException extends \Exception {
-
-} 
+class GeodataException extends \Exception
+{
+}

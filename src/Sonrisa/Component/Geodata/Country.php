@@ -7,7 +7,6 @@
  */
 namespace Sonrisa\Component\Geodata;
 
-use Sonrisa\Component\Geodata\Exceptions\GeodataException;
 use Sonrisa\Component\Geodata\Address;
 use Sonrisa\Component\Geodata\PostalCode;
 
@@ -17,85 +16,85 @@ use Sonrisa\Component\Geodata\PostalCode;
  */
 class Country
 {
-	protected $iso_code;
+    protected $iso_code;
 
-	public function __construct($iso_code)
-	{
+    public function __construct($iso_code)
+    {
 
-	}
+    }
 
-	/**
-	 * @param string $original_iso_name
- 	 * @param string $conversion_iso_name
- 	 * @param string $value
+    /**
+     * @param string $original_iso_name
+      * @param string $conversion_iso_name
+      * @param string $value
      * @return string
      */
-	public function convertCode($original_iso_name,$conversion_iso_name,$value)
-	{
+    public function convertCode($original_iso_name,$conversion_iso_name,$value)
+    {
 
-	}
+    }
 
-	/**
+    /**
      * @return string
      */
-	public function getCurrency()
-	{
-		$currency = '';
+    public function getCurrency()
+    {
+        $currency = '';
 
-		return $currency;
-	}
+        return $currency;
+    }
 
-	/**
-	 * @param mixed digit
+    /**
+     * @param mixed digit
      * @return string
      */
-	public function formatDigits($digit)
-	{
+    public function formatDigits($digit)
+    {
 
-	}	
+    }
 
-	/**
-	 * @param string $postal_code
+    /**
+     * @param  string $postal_code
      * @return bool
      */
-	public function validPostalCode($postal_code)
-	{
-		$post = new PostalCode();
+    public function validPostalCode($postal_code)
+    {
+        $post = new PostalCode();
 
-		if($post->isSupported($this->iso_code))
-		{
-			return $post->isValid($this->iso_code,$postal_code);
-		}
-	}
+        if ($post->isSupported($this->iso_code)) {
+            return $post->isValid($this->iso_code,$postal_code);
+        }
+    }
 
-	/**
-	 * Alias of validPostalCode
-	 *
-	 * @param string $postal_code
+    /**
+     * Alias of validPostalCode
+     *
+     * @param  string $postal_code
      * @return bool
      */
-	public function validZipCode($postal_code)
-	{
-		return $this->validPostalCode($postal_code);
-	}
+    public function validZipCode($postal_code)
+    {
+        return $this->validPostalCode($postal_code);
+    }
 
-	/**
-	 * Returns a string with the correct address format for the current country. 
-	 *
-	 * @param \Sonrisa\Component\Geodata\Address $address
+    /**
+     * Returns a string with the correct address format for the current country.
+     *
+     * @param  \Sonrisa\Component\Geodata\Address $address
      * @return string
      */
-	public function getAddress(Address $address)
-	{
-		$address->setCountry($this->iso_code);
-		return $address->build();
-	}
+    public function getAddress(Address $address)
+    {
+        $address->setCountry($this->iso_code);
 
-	/**
+        return $address->build();
+    }
+
+    /**
      * @return string
      */
-	public function getTLD()
-	{
+    public function getTLD()
+    {
 
-	}	
+    }
 }

@@ -6,24 +6,19 @@
  * file that was distributed with this source code.
  */
 
+use \Sonrisa\Component\Geodata\PostalCode;
+
 /**
  * Class PostalCodeTest
  */
 class PostalCodeTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @var \Sonrisa\Component\Geodata\PostalCode
-     */
-    protected $postal;
-
-    public function setUp()
-    {
-        $this->postal = \Sonrisa\Component\Geodata\PostalCode::getInstance();
-    }
 
 /*
     public function testConfigFileNotFound()
     {
+        $this->postal = \Sonrisa\Component\Geodata\PostalCode::getInstance();
+
         $this->setExpectedException("Sonrisa\\Component\\Geodata\\Exceptions\\GeodataException");
 
         $reflectionClass = new ReflectionClass('\Sonrisa\Component\Geodata\PostalCode');
@@ -34,57 +29,58 @@ class PostalCodeTest extends \PHPUnit_Framework_TestCase
         call_user_func_array(array($this->postal,'getInstance'),array());
     }
 */
+
     public function testIsSupportedReturnsTrue()
     {
-        $result = $this->postal->isSupported('ES');
+        $result = PostalCode::isSupported('ES');
         $this->assertTrue($result);
     }
 
     public function testIsSupportedReturnsFalse()
     {
-        $result = $this->postal->isSupported('XXXX');
+        $result = PostalCode::isSupported('XXXX');
         $this->assertFalse($result);
     }
 
     public function testIsValidReturnsTrue()
     {
-        $result = $this->postal->isValid('ES',"08029");
+        $result = PostalCode::isValid('ES',"08029");
         $this->assertTrue($result);
     }
 
     public function testIsValidThrowsExceptionBecauseOfCountryCode()
     {
         $this->setExpectedException("Sonrisa\\Component\\Geodata\\Exceptions\\GeodataException");
-        $this->postal->isValid('XXXX',"08029");
+        PostalCode::isValid('XXXX',"08029");
     }
 
     public function testIsValidReturnsFalseBecauseOfPostalCode()
     {
-        $result = $this->postal->isValid('ES',"XXXX");
+        $result = PostalCode::isValid('ES',"XXXX");
         $this->assertFalse($result);
     }
 
     public function testCountryCodesReturnsData()
     {
-        $result = $this->postal->countryCodes('ES');
+        $result = PostalCode::countryCodes('ES');
         $this->assertEquals(array('/^\d\d\d\d\d$/'),$result);
     }
 
     public function testCountryCodesReturnsEmptyData()
     {
-        $result = $this->postal->countryCodes('AO');
+        $result = PostalCode::countryCodes('AO');
         $this->assertEquals(array(),$result);
     }
 
     public function testCountryCodesThrowsException()
     {
         $this->setExpectedException("Sonrisa\\Component\\Geodata\\Exceptions\\GeodataException");
-        $this->postal->countryCodes('XXXXX');
+        PostalCode::countryCodes('XXXXX');
     }
 
     public function testsMatchesWithReturnsResults()
     {
-        $result = $this->postal->matchesWith('08029');
+        $result = PostalCode::matchesWith('08029');
 
         $this->assertNotEmpty($result);
         $this->assertTrue(in_array('ES',$result,true));
@@ -92,7 +88,7 @@ class PostalCodeTest extends \PHPUnit_Framework_TestCase
 
     public function testsMatchesWithReturnsFalse()
     {
-        $result = $this->postal->matchesWith('XXXXXXXX');
+        $result = PostalCode::matchesWith('XXXXXXXX');
         $this->assertEmpty($result);
     }
 }
