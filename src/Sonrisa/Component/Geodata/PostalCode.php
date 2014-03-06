@@ -116,7 +116,7 @@ class PostalCode
      */
     public static function isSupported($country_code)
     {
-	self::getInstance();
+    self::getInstance();
 
         $supported = false;
         $country_code = strtoupper($country_code);
@@ -138,7 +138,7 @@ class PostalCode
      */
     public static function isValid($country_code,$postal_code)
     {
-	self::getInstance();
+    self::getInstance();
 
         $valid = false;
         $country_code = strtoupper($country_code);
@@ -167,7 +167,7 @@ class PostalCode
      */
     public static function countryCodes($country_code)
     {
-	self::getInstance();
+    self::getInstance();
 
         $codes = array();
         $country_code = strtoupper($country_code);
@@ -191,7 +191,7 @@ class PostalCode
      */
     public static function matchesWith($postal_code)
     {
-	self::getInstance();
+    self::getInstance();
 
         if (empty(self::$postal_to_country)) {
             self::buildPostalToCountryRegexArray();

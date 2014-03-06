@@ -7,9 +7,6 @@
  */
 namespace Sonrisa\Component\Geodata;
 
-use Sonrisa\Component\Geodata\Address;
-use Sonrisa\Component\Geodata\PostalCode;
-
 /*
  * Class Country
  * @package Sonrisa\Component\Geodata

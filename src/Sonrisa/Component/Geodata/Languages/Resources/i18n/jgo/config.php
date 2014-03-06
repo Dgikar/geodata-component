@@ -7,20 +7,20 @@
  */
 
 /**
- * A list of continents regions containing countries using the ISO 639-1 code + region code.
+ * A list of language names using the ISO 639-1 code + region code.
  */
 return array
 (
     'parent'    => NULL,
     'data'      => array
     (
-     'ar'           =>      "Alâbɛ",
-     'de'           =>      "Njáman",
-     'el'           =>      "Ŋgɛlɛ̂k",
-     'en'           =>      "Aŋgɛlúshi",
-     'fr'           =>      "Fɛlánci",
-     'jgo'           =>      "Ndaꞌa",
-     'und'           =>      "Cú-Pʉɔ Yi Pɛ́ Ká Kɛ́ Jí",
-     'zh'           =>      "Shinwâ",
+        'ar'	=>	"Alâbɛ",
+        'de'	=>	"Njáman",
+        'el'	=>	"Ŋgɛlɛ̂k",
+        'en'	=>	"Aŋgɛlúshi",
+        'fr'	=>	"Fɛlánci",
+        'jgo'	=>	"Ndaꞌa",
+        'und'	=>	"Cú-Pʉɔ Yi Pɛ́ Ká Kɛ́ Jí",
+        'zh'	=>	"Shinwâ",
     ),
 );

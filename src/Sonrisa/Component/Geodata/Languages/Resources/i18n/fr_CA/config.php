@@ -7,24 +7,24 @@
  */
 
 /**
- * A list of continents regions containing countries using the ISO 639-1 code + region code.
+ * A list of language names using the ISO 639-1 code + region code.
  */
 return array
 (
     'parent'    => 'fr',
     'data'      => array
     (
-     'en_GB'           =>      "Anglais (Gb)",
-     'es_ES'           =>      "Espagnol Ibérique",
-     'fy'           =>      "Frison",
-     'gu'           =>      "Goudjarâtî",
-     'ps'           =>      "Ps",
-     'pt_PT'           =>      "Portugais Ibérique",
-     'si'           =>      "Singhalais",
-     'to'           =>      "Tongan",
-     'ug'           =>      "Ouïgour",
-     'ug'           =>      "Ouïghour",
-     'und'           =>      "Indéterminé",
-     'ybb'           =>      "Yémba",
+        'en_GB'	=>	"Anglais (Gb)",
+        'es_ES'	=>	"Espagnol Ibérique",
+        'fy'	=>	"Frison",
+        'gu'	=>	"Goudjarâtî",
+        'ps'	=>	"Ps",
+        'pt_PT'	=>	"Portugais Ibérique",
+        'si'	=>	"Singhalais",
+        'to'	=>	"Tongan",
+        'ug'	=>	"Ouïgour",
+        'ug'	=>	"Ouïghour",
+        'und'	=>	"Indéterminé",
+        'ybb'	=>	"Yémba",
     ),
 );

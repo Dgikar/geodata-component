@@ -7,14 +7,14 @@
  */
 
 /**
- * A list of continents regions containing countries using the ISO 639-1 code + region code.
+ * A list of language names using the ISO 639-1 code + region code.
  */
 return array
 (
     'parent'    => NULL,
     'data'      => array
     (
-     'mgo'           =>      "Metaʼ",
-     'und'           =>      "Ngam Tisɔʼ",
+        'mgo'	=>	"Metaʼ",
+        'und'	=>	"Ngam Tisɔʼ",
     ),
 );

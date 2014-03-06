@@ -7,15 +7,15 @@
  */
 
 /**
- * A list of continents regions containing countries using the ISO 639-1 code + region code.
+ * A list of language names using the ISO 639-1 code + region code.
  */
 return array
 (
     'parent'    => NULL,
     'data'      => array
     (
-     'as'           =>      "অসমীয়া",
-     'ie'           =>      "উপস্থাপন ভাষা",
-     'km'           =>      "কম্বোডিয়ান",
+        'as'	=>	"অসমীয়া",
+        'ie'	=>	"উপস্থাপন ভাষা",
+        'km'	=>	"কম্বোডিয়ান",
     ),
 );

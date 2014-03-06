@@ -7,15 +7,15 @@
  */
 
 /**
- * A list of continents regions containing countries using the ISO 639-1 code + region code.
+ * A list of language names using the ISO 639-1 code + region code.
  */
 return array
 (
     'parent'    => 'uz',
     'data'      => array
     (
-     'fa'           =>      "دری",
-     'ps'           =>      "پشتو",
-     'uz'           =>      "اوزبیک",
+        'fa'	=>	"دری",
+        'ps'	=>	"پشتو",
+        'uz'	=>	"اوزبیک",
     ),
 );

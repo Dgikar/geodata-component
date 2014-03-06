@@ -7,26 +7,26 @@
  */
 
 /**
- * A list of continents regions containing countries using the ISO 639-1 code + region code.
+ * A list of language names using the ISO 639-1 code + region code.
  */
 return array
 (
     'parent'    => NULL,
     'data'      => array
     (
-     'de'           =>      "ꄓꇩꉙ",
-     'en'           =>      "ꑱꇩꉙ",
-     'es'           =>      "ꑭꀠꑸꉙ",
-     'fr'           =>      "ꃔꇩꉙ",
-     'ii'           =>      "ꆈꌠꉙ",
-     'it'           =>      "ꑴꄊꆺꉙ",
-     'ja'           =>      "ꏝꀪꉙ",
-     'pt'           =>      "ꁍꄨꑸꉙ",
-     'pt_BR'           =>      "ꀠꑟꁍꄨꑸꉙ",
-     'ru'           =>      "ꊉꇩꉙ",
-     'und'           =>      "ꅉꀋꌠꅇꂷ",
-     'zh'           =>      "ꍏꇩꉙ",
-     'zh_Hans'           =>      "ꈝꐯꍏꇩꉙ",
-     'zh_Hant'           =>      "ꀎꋏꍏꇩꉙ",
+        'de'	=>	"ꄓꇩꉙ",
+        'en'	=>	"ꑱꇩꉙ",
+        'es'	=>	"ꑭꀠꑸꉙ",
+        'fr'	=>	"ꃔꇩꉙ",
+        'ii'	=>	"ꆈꌠꉙ",
+        'it'	=>	"ꑴꄊꆺꉙ",
+        'ja'	=>	"ꏝꀪꉙ",
+        'pt'	=>	"ꁍꄨꑸꉙ",
+        'pt_BR'	=>	"ꀠꑟꁍꄨꑸꉙ",
+        'ru'	=>	"ꊉꇩꉙ",
+        'und'	=>	"ꅉꀋꌠꅇꂷ",
+        'zh'	=>	"ꍏꇩꉙ",
+        'zh_Hans'	=>	"ꈝꐯꍏꇩꉙ",
+        'zh_Hant'	=>	"ꀎꋏꍏꇩꉙ",
     ),
 );
