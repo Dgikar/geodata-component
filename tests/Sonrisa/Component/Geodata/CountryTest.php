@@ -6,21 +6,21 @@
  * file that was distributed with this source code.
  */
 
-use \Sonrisa\Component\Geodata\Address;
+use \Sonrisa\Component\Geodata\Country;
 
 /**
- * Class AddressTest
+ * Class CountryTest
  */
-class AddressTest extends \PHPUnit_Framework_TestCase
+class CountryTest extends \PHPUnit_Framework_TestCase
 {
 	/**
-	 * @var \Sonrisa\Component\Geodata\Address
+	 * @var \Sonrisa\Component\Geodata\Country
 	 */
-	protected $address;
+	protected $country;
 
 	public function setUp()
 	{
-		$this->address = new \Sonrisa\Component\Geodata\Address();
+		$this->country = new \Sonrisa\Component\Geodata\Country();
 	}
 
 	public testPlaceholder()
