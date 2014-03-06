@@ -13,19 +13,19 @@ use \Sonrisa\Component\Geodata\Address;
  */
 class AddressTest extends \PHPUnit_Framework_TestCase
 {
-	/**
-	 * @var \Sonrisa\Component\Geodata\Address
-	 */
-	protected $address;
+    /**
+     * @var \Sonrisa\Component\Geodata\Address
+     */
+    protected $address;
 
-	public function setUp()
-	{
-		$this->address = new \Sonrisa\Component\Geodata\Address();
-	}
+    public function setUp()
+    {
+        $this->address = new \Sonrisa\Component\Geodata\Address();
+    }
 
-	public function testPlaceholder()
-	{
+    public function testPlaceholder()
+    {
 
-	}
+    }
 
 }

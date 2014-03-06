@@ -13,19 +13,19 @@ use \Sonrisa\Component\Geodata\Country;
  */
 class CountryTest extends \PHPUnit_Framework_TestCase
 {
-	/**
-	 * @var \Sonrisa\Component\Geodata\Country
-	 */
-	protected $country;
+    /**
+     * @var \Sonrisa\Component\Geodata\Country
+     */
+    protected $country;
 
-	public function setUp()
-	{
-		$this->country = new \Sonrisa\Component\Geodata\Country('ES');
-	}
+    public function setUp()
+    {
+        $this->country = new \Sonrisa\Component\Geodata\Country('ES');
+    }
 
-	public function testPlaceholder()
-	{
+    public function testPlaceholder()
+    {
 
-	}
+    }
 
 }
