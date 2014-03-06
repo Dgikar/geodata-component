@@ -63,14 +63,17 @@ class Address
 
     }
 
-    public function setCountry($country)
+    public function setCountry($iso_code)
     {
         //If country is a valid iso code, set the iso code value.
-
-        $this->iso_code = $country;
+        if(empty($this->formats))
+        {
+             $this->setUp($iso_code);
+        }
 
         //@todo: Load up country name using the iso_code and set the data array
-
+        $country_name = '';
+        
         //Return data
         $this->data['COUNTRY'] = $country_name;
 
@@ -90,10 +93,11 @@ class Address
         }
 
         //Check if the loaded file contains the ISO code for the Address format.
-        if ( !empty($this->formats[$iso_code]) ) {
+        if ( !empty($this->formats[$iso_code]) ) 
+        {
             $this->format = $this->formats[$iso_code];
+            $this->iso_code = $iso_code;
 
-            $this->setCountry($iso_code);
         } else {
             throw new GeodataException('ISO code provided not found in configuration file.');
         }
