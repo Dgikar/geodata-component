@@ -23,7 +23,7 @@ class AddressTest extends \PHPUnit_Framework_TestCase
 		$this->address = new \Sonrisa\Component\Geodata\Address();
 	}
 
-	public testPlaceholder()
+	public function testPlaceholder()
 	{
 
 	}

@@ -20,10 +20,10 @@ class CountryTest extends \PHPUnit_Framework_TestCase
 
 	public function setUp()
 	{
-		$this->country = new \Sonrisa\Component\Geodata\Country();
+		$this->country = new \Sonrisa\Component\Geodata\Country('ES');
 	}
 
-	public testPlaceholder()
+	public function testPlaceholder()
 	{
 
 	}
