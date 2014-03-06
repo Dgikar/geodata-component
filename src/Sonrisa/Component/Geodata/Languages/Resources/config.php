@@ -8,6 +8,7 @@
 
 /**
  * List of language codes and its original local name.
+ * Source for native names: http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
  */
 return array
 (
