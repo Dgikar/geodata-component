@@ -1,0 +1,32 @@
+<?php
+/*
+ * Author: Nil Portugués Calderó <contact@nilportugues.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/**
+ * A list of world's currency names in the current locale.
+ */
+return array
+(
+    'parent'    => NULL,
+    'data'      => array
+    (
+		'CVE'	=>	 array
+		(
+			'name'	=>	"Escudo Caboverdiano",
+ 			'one'	=>	"Escudo Caboverdiano",
+ 			'many'	=>	"Escudo Caboverdiano"
+ 		),
+
+		'NGN'	=>	 array
+		(
+			'name'	=>	"Naịra",
+ 			'one'	=>	"Naịra",
+ 			'many'	=>	"Naịra"
+ 		),
+
+    ),
+);
